@@ -510,7 +510,7 @@ showconf(){
 menu() {
     clear
     echo "#############################################################"
-    echo -e "#                  ${GREEN}Hysteria 2 一键安装脚本${PLAIN}                  #"
+    echo -e "#                  ${GREEN}Hysteria 2 一键安装脚本${PLAIN} check_hysteria_installed                 #"
     echo "#############################################################"
     echo ""
     echo -e " ${GREEN}1.${PLAIN} ${GREEN}安装 Hysteria 2${PLAIN}"
