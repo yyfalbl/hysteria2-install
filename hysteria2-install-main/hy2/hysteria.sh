@@ -19,6 +19,29 @@ yellow(){
     echo -e "\033[33m\033[01m$1\033[0m"
 }
 
+# 检测 Hysteria 2 是否已安装
+check_hysteria_installed() {
+    if command -v hysteria >/dev/null 2>&1; then
+        green "Hysteria 2 已经安装。"
+        hysteria_installed=true
+    else
+        red "Hysteria 2 未安装。"
+        hysteria_installed=false
+    fi
+}
+
+# 在脚本开头调用检测函数
+check_hysteria_installed
+
+# 在需要的地方根据 hysteria_installed 变量的值进行逻辑处理
+if [ "$hysteria_installed" = true ]; then
+    yellow "您可以选择重新安装或更新 Hysteria 2，或者直接跳过安装步骤。"
+    # 在这里添加用户选择是否继续安装或更新的逻辑
+else
+    green "准备开始安装 Hysteria 2..."
+    # 继续执行安装流程
+fi
+
 # 判断系统及定义系统安装依赖方式
 REGEX=("debian" "ubuntu" "centos|red hat|kernel|oracle linux|alma|rocky" "'amazon linux'" "fedora")
 RELEASE=("Debian" "Ubuntu" "CentOS" "CentOS" "Fedora")
